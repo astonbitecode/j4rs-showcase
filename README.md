@@ -2,7 +2,13 @@
 
 Showcase for a Rust application that creates and uses a JavaFX User Interface.
 
-## Steps to execute the showcase
+## Prerequisites
+
+* Java 11 is installed
+* Maven is installed
+* Rust is installed
+
+## Steps for the building and executing
 
 1. Build with
 
@@ -26,3 +32,9 @@ Showcase for a Rust application that creates and uses a JavaFX User Interface.
     ```bash
     cargo run --manifest-path=rust/Cargo.toml
     ```
+
+## Execution output
+
+![fxui.png](gh-images/fxui.png)
+
+![console.png](gh-images/console.png)
