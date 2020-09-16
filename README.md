@@ -5,33 +5,26 @@ Showcase for a Rust application that creates and uses a JavaFX User Interface.
 ## Prerequisites
 
 * Java 11 is installed
-* Maven is installed
-* Rust is installed
+* Rust and cargo are installed
 
-## Steps for the building and executing
+## Execution
 
-1. Build with
+* If you have cloned this repository, execute with:
 
     ```bash
-    cargo build --manifest-path=rust/Cargo.toml
-    ``` 
-    
-    During building, you should get a warning like:
-
-    >  warning: Please export the env var "FX_UI_JAR_PATH" with the value "/home/myuser/git/j4rs-showcase/java/target/fx-ui-0.1.0.jar" before running the application
-
-1. Export the FX_UI_JAR_PATH variable
-    
-    For linux:
-    ```bash
-    export FX_UI_JAR_PATH=/home/myuser/git/j4rs-showcase/java/target/fx-ui-0.1.0.jar
+    cargo run
     ```
 
-1. Execute with
+* Execute directly from the Github without cloning:
 
-    ```bash
-    cargo run --manifest-path=rust/Cargo.toml
-    ```
+  1. Install with cargo:
+     ```bash
+     cargo install --git https://github.com/astonbitecode/j4rs-showcase
+     ```
+  1. Execute:
+     ```bash
+     javafx-from-rust
+     ```
 
 ## Execution output
 

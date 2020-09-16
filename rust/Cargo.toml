@@ -1,8 +1,0 @@
-[package]
-name = "javafx-from-rust"
-version = "0.1.0"
-authors = ["astonbitecode"]
-edition = "2018"
-
-[dependencies]
-j4rs = "0.5"
