@@ -22,7 +22,7 @@ fn main() -> Result<()> {
     // Get the action channel for this button
     let btn_action_channel = jvm.set_javafx_event_receiver(&btn, "setOnAction")?;
     // Set the text of the button. Java code: btn.setText("Say Hello World to Rust");
-    jvm.invoke(&btn, "setText", &[InvocationArg::try_from("Say Hello World to Rust")?])?;
+    jvm.invoke(&btn, "setText", &[InvocationArg::try_from("A button that sends events to Rust")?])?;
     // Add the button to the GUI. Java code: root.getChildren().add(btn);
     jvm.chain(&root)?
         .invoke("getChildren", &[])?
