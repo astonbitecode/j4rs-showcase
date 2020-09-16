@@ -9,24 +9,14 @@ Showcase for a Rust application that creates and uses a JavaFX User Interface.
 
 ## Execution
 
-* If you have cloned this repository, execute with:
-
-    ```bash
-    cargo run
-    ```
-
-* Execute directly from the Github without cloning:
-
-  1. Install with cargo:
-     ```bash
-     cargo install --git https://github.com/astonbitecode/j4rs-showcase
-     ```
-  1. Execute:
-     ```bash
-     javafx-from-rust
-     ```
+```bash
+cargo run
+```
 
 ## Execution output
+
+Click the button three times and then press the close button of the JavaFX window.
+
 
 ![fxui.png](gh-images/fxui.png)
 
