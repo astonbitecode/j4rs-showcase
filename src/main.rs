@@ -41,7 +41,7 @@ fn normal() -> Result<()> {
     // Create the button. Java code: Button btn = new Button();
     let btn = jvm.create_instance("javafx.scene.control.Button", &[])?;
     // Get the action channel for this button
-    let btn_action_channel = jvm.set_javafx_event_receiver(&btn, "setOnAction")?;
+    let btn_action_channel = jvm.get_javafx_event_receiver(&btn, FxEventType::ActionEvent_Action)?;
     // Set the text of the button. Java code: btn.setText("Say Hello World to Rust");
     jvm.invoke(&btn, "setText", &["A button that sends events to Rust".try_into()?])?;
     // Add the button to the GUI. Java code: root.getChildren().add(btn);
