@@ -96,7 +96,8 @@ fn fxml() -> Result<()> {
     // Get the onclose handler channel
     let onclose_channel = jvm.on_close_event_receiver(&stage)?;
 
-    // Load a fxml
+    // Load a fxml. This returns an `FxController` which can be used in order to find Nodes by their id,
+    // add Event Listeners and more.
     let controller = jvm.load_fxml(&PathBuf::from("./fxml/jfx_in_rust.fxml"), &stage)?;
 
     // Wait for the controller to be initialized. This is not mandatory, it is here to shoe that the functionality exists.
