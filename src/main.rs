@@ -36,14 +36,14 @@ fn normal() -> Result<()> {
     let stage = jvm.start_javafx_app()?.rx().recv()?;
 
     // Create a StackPane. Java code: StackPane root = new StackPane();
-    let root = jvm.create_instance("javafx.scene.layout.StackPane", &[])?;
+    let root = jvm.create_instance("javafx.scene.layout.StackPane", InvocationArg::empty())?;
 
     // Create the button. Java code: Button btn = new Button();
-    let btn = jvm.create_instance("javafx.scene.control.Button", &[])?;
+    let btn = jvm.create_instance("javafx.scene.control.Button", InvocationArg::empty())?;
     // Get the action channel for this button
     let btn_action_channel = jvm.get_javafx_event_receiver(&btn, FxEventType::ActionEvent_Action)?;
     // Set the text of the button. Java code: btn.setText("Say Hello World to Rust");
-    jvm.invoke(&btn, "setText", &["A button that sends events to Rust".try_into()?])?;
+    jvm.invoke(&btn, "setText", &[InvocationArg::try_from("A button that sends events to Rust")?])?;
     // Add the button to the GUI. Java code: root.getChildren().add(btn);
     jvm.chain(&root)?
         .invoke("getChildren", &[])?
@@ -56,11 +56,11 @@ fn normal() -> Result<()> {
         InvocationArg::try_from(300_f64)?.into_primitive()?,
         InvocationArg::try_from(250_f64)?.into_primitive()?])?;
     // Set the title for the scene. Java code: stage.setTitle("Hello Rust world!");
-    jvm.invoke(&stage, "setTitle", &["Hello Rust world!".try_into()?])?;
+    jvm.invoke(&stage, "setTitle", &[InvocationArg::try_from("Hello Rust world!")?])?;
     // Set the scene in the stage. Java code: stage.setScene(scene);
-    jvm.invoke(&stage, "setScene", &[scene.try_into()?])?;
+    jvm.invoke(&stage, "setScene", &[InvocationArg::try_from(scene)?])?;
     // Show the stage. Java code: stage.show();
-    jvm.invoke(&stage, "show", &[])?;
+    jvm.invoke(&stage, "show", InvocationArg::empty())?;
 
     // Get the onclose handler channel
     let onclose_channel = jvm.on_close_event_receiver(&stage)?;
@@ -89,9 +89,9 @@ fn fxml() -> Result<()> {
     let stage = jvm.start_javafx_app()?.rx().recv()?;
 
     // Set the title for the scene. Java code: stage.setTitle("Hello Rust world!");
-    jvm.invoke(&stage, "setTitle", &["Hello JavaFX from Rust!".try_into()?])?;
+    jvm.invoke(&stage, "setTitle", &[InvocationArg::try_from("Hello JavaFX from Rust!")?])?;
     // Show the stage. Java code: stage.show();
-    jvm.invoke(&stage, "show", &[])?;
+    jvm.invoke(&stage, "show", InvocationArg::empty())?;
 
     // Get the onclose handler channel
     let onclose_channel = jvm.on_close_event_receiver(&stage)?;
